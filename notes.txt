@@ -1,0 +1,8 @@
+// we will make an application jahn p user posts likh paingay 
+// users create karny hain 
+// users ko create karna hay 
+// login and register karna h 
+// logout
+// post creation
+// post like 
+// post delete ka option (just for owner)
