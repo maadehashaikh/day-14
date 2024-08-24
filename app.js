@@ -22,8 +22,20 @@ app.get('/login',(req,res)=> {
 
 // Profile route is the protected route 
 app.get('/profile', isLoggedIn ,async (req,res)=> {
-  let user = await userModel.findOne({email: req.user.email});
+  let user = await userModel.findOne({email: req.user.email}).populate("posts");
   res.render("profile",{user});
+})
+
+app.post('/post', isLoggedIn ,async (req,res)=> {
+  let user = await userModel.findOne({email: req.user.email});
+  let {content} = req.body;
+  let post = await postModel.create({
+    user: user._id,
+    content
+  });
+  user.posts.push(post._id);
+  await user.save();
+  res.redirect("/profile");
 })
 
 app.post('/register',async (req,res)=> {

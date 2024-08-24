@@ -13,12 +13,24 @@
     </div>
       <h3 class="text-3xl mb-5"><span class="font-bold text-blue-400 text-4xl ">Hello ,</span> <%= user.name  %>🎉</h3>
       <h5 class="mb-2">You Can Create A New Post 🚀</h5>
-      <form action="">
-        <textarea name="" class=" w-1/3 resize-none bg-transparent border-2 border-grey-800 rounded-md mt-2 pt-3 pl-2 block" placeholder="What's in your mind ?"></textarea>
+      <form action="/post" method="post">
+        <textarea name="" class=" w-1/3 resize-none bg-transparent border-2 border-grey-800 rounded-md mt-2 pt-3 pl-2 block" placeholder="What's in your mind ?" name="content"></textarea>
         <input type="submit" class="px-3 py-2 bg-blue-500 block mt-3 rounded-md w-40 text-sm" value="Create new post">
       </form>
       <div class="posts mt-20">
-        <h3>Your Posts .</h3>
+        <h3 class="text-zinc-400">Your Posts .</h3>
+        <div class="postContainer mt-5">
+          <% user.posts.forEach(function(post){ %>
+            <div class="post w-1/3 p-4 border-2 border-zinc-600 rounded-md bg-zinc-700 mb-4">
+              <h4 class="text-blue-500 mb-2"> <%= user.username %></h4>
+              <p class="text-sm tracking-tighter"><%= post.content %></p>
+              <div class="btns flex mt-4 gap-4">
+                <a href="" class="text-blue-500" >Like</a>
+                <a href="" class="text-zinc-500">Edit</a>
+              </div>
+            </div>
+         <% }) %>
+        </div>
       </div>
   </div>
 </body>
