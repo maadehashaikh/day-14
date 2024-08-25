@@ -21,6 +21,28 @@ app.get('/login',(req,res)=> {
 })
 
 // Profile route is the protected route 
+app.get('/like/:id', isLoggedIn ,async (req,res)=> {
+  let post = await postModel.findOne({_id: req.params.id}).populate("user");
+  if(post.likes.indexOf(req.user.userid) === -1){
+    post.likes.push(req.user.userid);
+  }
+  else {
+    post.likes.splice(post.likes.indexOf(req.user.userid),1)
+  }
+  await post.save();
+  res.redirect("/profile")
+})
+
+app.get('/edit/:id', isLoggedIn ,async (req,res)=> {
+  let post = await postModel.findOne({_id: req.params.id}).populate("user");
+  res.render("edit",{post});
+})
+
+app.post('/update/:id', isLoggedIn ,async (req,res)=> {
+  let post = await postModel.findOneAndUpdate({_id: req.params.id},{content:req.body.content});
+  res.redirect("/profile");
+})
+
 app.get('/profile', isLoggedIn ,async (req,res)=> {
   let user = await userModel.findOne({email: req.user.email}).populate("posts");
   res.render("profile",{user});
@@ -83,10 +105,11 @@ function isLoggedIn (req , res , next){
   else {
   let data = jwt.verify(req.cookies.token,"secret");
   req.user = data ; 
-  }
   next();
+  }
+ 
 }
 
 
 
-app.listen(3000);
+app.listen(3000); 
