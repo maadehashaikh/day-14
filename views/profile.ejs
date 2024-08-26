@@ -11,8 +11,13 @@
     <div class="flex w-full justify-end">
       <a href="/logout" class="bg-red-500 rounded-md px-3 py-2 text-sm mb-3 inline-block">Logout</a>
     </div>
+     <div class="flex items-start gap-3">
+      <div class="w-10 h-10 rounded-md overflow-hidden">
+        <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilepic %>" alt="">
+      </div>
       <h3 class="text-3xl mb-5"><span class="font-bold text-blue-400 text-4xl ">Hello ,</span> <%= user.name  %>🎉</h3>
-      <h5 class="mb-2">You Can Create A New Post 🚀</h5>
+     </div>
+      <h5 class="mb-2 mt-3">You Can Create A New Post 🚀</h5>
       <form action="/post" method="post">
         <textarea class=" w-1/3 resize-none bg-transparent border-2 border-grey-800 rounded-md mt-2 pt-3 pl-2 block" placeholder="What's in your mind ?" name="content"></textarea>
         <input type="submit" class="px-3 py-2 bg-blue-500 block mt-3 rounded-md w-40 text-sm" 

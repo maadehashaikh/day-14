@@ -8,3 +8,4 @@ post like
 post delete ka option (just for owner)
 why we use multer => basically agar apko kisi ko koi file bhejni h ya img bhejni h us kay liyay simply we use multer 
 enctype="multipart/form-data" => we want kay data chunks mai jay 
+
