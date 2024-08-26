@@ -1,8 +1,10 @@
-// we will make an application jahn p user posts likh paingay 
-// users create karny hain 
-// users ko create karna hay 
-// login and register karna h 
-// logout
-// post creation
-// post like 
-// post delete ka option (just for owner)
+we will make an application jahn p user posts likh paingay 
+users create karny hain 
+users ko create karna hay 
+login and register karna h 
+logout
+post creation
+post like 
+post delete ka option (just for owner)
+why we use multer => basically agar apko kisi ko koi file bhejni h ya img bhejni h us kay liyay simply we use multer 
+enctype="multipart/form-data" => we want kay data chunks mai jay 
