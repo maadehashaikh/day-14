@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
   password:String,
   profilepic:{
    type:String,
-   default:"default.p"
+   default:"default.jpg"
   },
   posts:[
     {type:mongoose.Schema.Types.ObjectId , ref:"post"}

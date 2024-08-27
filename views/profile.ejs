@@ -13,7 +13,7 @@
     </div>
      <div class="flex items-start gap-3">
       <div class="w-10 h-10 rounded-md overflow-hidden">
-        <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilepic %>" alt="">
+        <img class="w-full h-full" src="/images/uploads/<%= user.profilepic %>" alt=""> 
       </div>
       <h3 class="text-3xl mb-5"><span class="font-bold text-blue-400 text-4xl ">Hello ,</span> <%= user.name  %>🎉</h3>
      </div>
@@ -33,7 +33,7 @@
               <small class="mt-2 inline-block"><%= post.likes.length %> likes</small>
               <div class="btns flex mt-1 gap-4">
                 <a class="text-blue-500" href="/like/<%= post._id %>">
-                  <%= post.likes.indexOf(user._id) === -1  ? "Unlike" : "Like" %>
+                  <%= post.likes.indexOf(user._id) === -1  ? "👍" : "👎" %>
                 </a>
                 <a href="/edit/<%= post._id %>" class="text-zinc-500">Edit</a>
               </div>
