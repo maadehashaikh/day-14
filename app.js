@@ -125,4 +125,6 @@ function isLoggedIn (req , res , next){
  
 }
 
-app.listen(3000); 
+app.listen(3000,(req,res)=>{
+  console.log("hello there !")
+}); 
